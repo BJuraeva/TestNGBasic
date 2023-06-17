@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/16465/IdeaProjects/TestNG/src/test/java/class02/SoftAssertions.java">
+       <classes>
+           <class name="class01.Priority">
+               <methods>
+                   <include name="Atest"/>
+                   <include name="Btest"/>
+                   <exclude name="Ctest"/>
+                   <include name="Dtest"/>
+                   <include name="ABtest"/>
+               </methods>
+           </class>
+           <class name="class02.HardAssertion">
+               <methods>
+                   <include name="verifyTheError"/>
+               </methods>
+           </class>
+
+       </classes>
+    </test>
+</suite>
+
