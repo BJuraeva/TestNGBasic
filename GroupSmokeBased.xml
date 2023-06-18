@@ -5,6 +5,7 @@
           name="C:/Users/16465/IdeaProjects/TestNG/src/test/java/class02/SoftAssertions.java">
         <groups>
             <run>
+                <include name="regression"/>
                 <include name="smoke"/>
             </run>
         </groups>

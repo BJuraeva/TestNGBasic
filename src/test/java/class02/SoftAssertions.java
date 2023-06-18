@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import utils.CommonMethods;
 
 import java.time.Duration;
 //    precondition
@@ -15,24 +16,22 @@ import java.time.Duration;
 //    login into the syntax HRMS APP
 //    verify that the Welcome message is displayed
 //    verify that the message is  "Welcome Admin"
-public class SoftAssertions {
-    public static WebDriver driver;
+public class SoftAssertions extends CommonMethods {
+
     @BeforeMethod (alwaysRun = true)
     public void OpenBrowserAndNavigate(){
-        driver= new ChromeDriver();
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        openBrowserAndNavigateToURL("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login","chrome");
     }
 
     // post conditions
     @AfterMethod(alwaysRun = true)
-    public void closeBrowser(){
+    public void quitBrowser(){
         // driver.quit();
     }
 
-    @Test (groups = "regrassion")
+    @Test (groups = "regression") // in order to run @before/@after method we need tu put (alwaysRun = true)
     public void verifyTheWelcomeMessage(){
+
         // send username
         WebElement userName = driver.findElement(By.xpath("//input[@name='txtUsername']"));
         userName.sendKeys("Admin");
